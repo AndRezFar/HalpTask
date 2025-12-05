@@ -120,7 +120,8 @@ button:hover {
     border-radius: 20px;
     text-align: center;
     background-color: #C58EFF;
-    width: 500px;
+    max-width: 500px;
+    min-width: 200px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
