@@ -9,7 +9,6 @@ def get_db():
 
     client = MongoClient(mongo_uri, server_api=ServerApi('1'))
 
-    # db = client["HelpTask"]
     return client["HelpTask"]
 
 db = get_db()
