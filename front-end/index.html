@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HelpTask</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <div id="overlay"></div>
+    <form class="criar_tarefa_tela" id="criar_tarefa_tela">
+        <span class="fechar" onclick="fecharTelaCriarTarefa()">&times</span>
+        <h1 class="title">Criando Tarefa</h1>
+        <section class="criando_tarefa">
+            <input class="titulo" id="titulo" type="text" placeholder="Título">
+            <select class="prioridade" id="prioridade_criar_tarefa">
+                <option >Prioridade</option>
+                <option >Alta</option>
+                <option >Média</option>
+                <option >Baixa</option>
+            </select>
+            <p style="text-align: start; margin-top: 0;margin-bottom: 0; margin-left: 25px; color: white; font-weight: bold;">Prazo:</p>
+            <input class="prazo" type="date" id="prazo" placeholder="Prazo">
+            <textarea class="descricao" id="descricao" placeholder="Descrição" cols="71"></textarea>
+        </section>
+        <button class = "btn_criar_tarefa_tela" onclick="salvarTarefaCraida()" id="concluir_criar_tarefa">Criar</button>
+    </form>
+
+    <form class="filtrar_tela" id="filtrar_tela" onsubmit="return validarDatas(event)">
+        <span class="fechar" onclick="fecharTelaFiltrarTarefa()">&times</span>
+        <h1 class="title">Filtrar Tarefa</h1>
+        <section class="filtrar_tarefa">
+            <p style="text-align: start; margin-bottom: 0; margin-left: 10px; color: white; font-weight: bold;">Datas de Adição:</p>
+            <p id="mensagem_erro" style="color: #CC0000; margin-top: 10px;"></p>
+            <section class="selecao_de_datas_adicao">
+                <input class="data_inicio" type="date" id="adicao_data_inicio" placeholder="Data Início">
+                <p style="color: white">até</p>
+                <input class="data_fim" type="date" id="adicao_data_fim" placeholder="Data Fim">
+            </section>
+            <p style="text-align: start; margin-bottom: 0; margin-left: 10px; color: white; font-weight: bold;">Datas do Prazo:</p>
+            <section class="selecao_de_datas_prazo">
+                <input class="data_inicio" type="date" id="prazo_data_inicio" placeholder="Data Início">
+                <p style="color: white">até</p>
+                <input class="data_fim" type="date" id="prazo_data_fim" placeholder="Data Fim">
+            </section>
+            <select class="prioridade" id="prioridade_filtrar_tarefa">
+                <option>Prioridade</option>
+                <option>Alta</option>
+                <option>Média</option>
+                <option>Baixa</option>
+            </select>
+        </section>
+        <div style="display: flex; justify-content: space-around;">
+            <button style="width: auto; padding-left: 10px; padding-right: 10px;" class = "btn_filtrar_tarefa_tela" onclick="listarTarefas()" id="limpar_filtrar_tarefa">Limpar Filtros</button>
+            <button type="button" class = "btn_filtrar_tarefa_tela" data-in="filtrar" id="concluir_filtrar_tarefa">Filtrar</button>
+        </div>
+    </form>
+
+    <body class="content">
+        <div class="box">
+            <h1 class="title">Help Task</h1>
+            <div class="espaco_botoes_filtros">
+                <button class = "botoes_filtros" onclick="abrirTelaCriarTarefa()" id="criar_tarefa">Criar Tarefa</button>
+                <button class = "botoes_filtros" onclick="abrirTelaFiltrarTarefa()" id="filtrar_historico">Filtrar</button>
+            </div>
+            <section id="listaTarefas" class="tarefas"></section>
+            <p style="margin: 10px 00px 0px 0px;">Desenvolvido por Andrews</p>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
